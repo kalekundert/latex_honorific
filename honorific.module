@@ -1,0 +1,68 @@
+#\DeclareLyXModule[honorific.sty]{Honorific}
+#DescriptionBegin
+#Custom insets to properly typeset honorifics such as Mr., Mrs., Dr., etc.
+#DescriptionEnd
+
+Format 66
+
+AddToPreamble
+    \usepackage{honorific}
+EndPreamble
+
+InsetLayout "Flex:Mr."
+  LyXType               custom
+  LatexType             command
+  LatexName             Mr
+  LabelString           "Mr."
+  Decoration            Classic
+  MultiPar              0
+End
+
+InsetLayout "Flex:Mrs."
+  CopyStyle             "Flex:Mr."
+  LatexName             Mrs
+  LabelString           "Mrs."
+End
+
+InsetLayout "Flex:Ms."
+  CopyStyle             "Flex:Mr."
+  LatexName             Ms
+  LabelString           "Ms."
+End
+
+InsetLayout "Flex:Dr."
+  CopyStyle             "Flex:Mr."
+  LatexName             Dr
+  LabelString           "Dr."
+End
+
+InsetLayout "Flex:Prof."
+  CopyStyle             "Flex:Mr."
+  LatexName             Prof
+  LabelString           "Prof."
+End
+
+InsetLayout "Flex:Messrs."
+  CopyStyle             "Flex:Mr."
+  LatexName             Messrs
+  LabelString           "Messrs."
+End
+
+InsetLayout "Flex:Mmes."
+  CopyStyle             "Flex:Mr."
+  LatexName             Mmes
+  LabelString           "Mmes."
+End
+
+InsetLayout "Flex:Drs."
+  CopyStyle             "Flex:Mr."
+  LatexName             Drs
+  LabelString           "Drs."
+End
+
+InsetLayout "Flex:Profs."
+  CopyStyle             "Flex:Mr."
+  LatexName             Profs
+  LabelString           "Profs."
+End
+

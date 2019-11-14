@@ -1,0 +1,150 @@
+% \iffalse meta-comment
+% vim: textwidth=75
+%<*internal>
+\iffalse
+%</internal>
+%<*readme>
+|
+---------:| --------------------------------------------------------------
+honorific:| Properly typeset honorifics such as Dr., Mr., Mrs., etc.
+   Author:| Kale Kundert
+   E-mail:| kale@thekunderts.net
+  License:| Released under the LaTeX Project Public License v1.3c or later
+      See:| http://www.latex-project.org/lppl.txt
+%</readme>
+%<*internal>
+\fi
+\def\nameofplainTeX{plain}
+\ifx\fmtname\nameofplainTeX\else
+  \expandafter\begingroup
+\fi
+%</internal>
+%<*install>
+\input docstrip.tex
+\keepsilent
+\askforoverwritefalse
+\preamble
+|
+---------:| --------------------------------------------------------------
+honorific:| Properly typeset honorifics such as Dr., Mr., Mrs., etc.
+   Author:| Kale Kundert
+   E-mail:| kale@thekunderts.net
+  License:| Released under the LaTeX Project Public License v1.3c or later
+      See:| http://www.latex-project.org/lppl.txt
+\endpreamble
+\postamble
+
+Copyright (C) 2019 by Kale Kundert <kale@thekunderts.net>
+
+This work may be distributed and/or modified under the
+conditions of the LaTeX Project Public License (LPPL), either
+version 1.3c of this license or (at your option) any later
+version.  The latest version of this license is in the file:
+
+http://www.latex-project.org/lppl.txt
+
+This work is "maintained" (as per LPPL maintenance status) by
+Kale Kundert.
+
+This work consists of the file honorific.dtx and a Makefile.
+Running "make" generates the derived files README, honorific.pdf and honorific.sty.
+Running "make inst" installs the files in the user's TeX tree.
+Running "make install" installs the files in the local TeX tree.
+
+\endpostamble
+
+\usedir{tex/latex/honorific}
+\generate{
+  \file{\jobname.sty}{\from{\jobname.dtx}{package}}
+}
+%</install>
+%<install>\endbatchfile
+%<*internal>
+\usedir{source/latex/honorific}
+\generate{
+  \file{\jobname.ins}{\from{\jobname.dtx}{install}}
+}
+\nopreamble\nopostamble
+\usedir{doc/latex/honorific}
+\generate{
+  \file{README.txt}{\from{\jobname.dtx}{readme}}
+}
+\ifx\fmtname\nameofplainTeX
+  \expandafter\endbatchfile
+\else
+  \expandafter\endgroup
+\fi
+%</internal>
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{honorific.dtx}
+%</driver>
+%<package>\NeedsTeXFormat{LaTeX2e}[1999/12/01]
+%<package>\ProvidesPackage{honorific}
+%<*package>
+    [2019/11/14 v1.00 A new LaTeX package]
+%</package>
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage[a4paper,margin=25mm,left=50mm,nohead]{geometry}
+\usepackage[numbered]{hypdoc}
+\usepackage{\jobname}
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\begin{document}
+  \DocInput{\jobname.dtx}
+\end{document}
+%</driver>
+% \fi
+%
+% \GetFileInfo{\jobname.dtx}
+% \DoNotIndex{\newcommand,\newenvironment}
+%
+%\title{\textsf{honorific} --- Properly typeset Mr., Mrs., Dr., etc.}
+%\author{Kale Kundert}
+%\date{Released \filedate}
+%
+%\maketitle
+%
+%\changes{v1.00}{2019/11/14}{First public release}
+%
+%\StopEventually{^^A
+%  \PrintChanges
+%  \PrintIndex
+%}
+%
+% \section{Implementation}
+%
+%    \begin{macrocode}
+%<*package>
+
+%    \end{macrocode}
+% \begin{macro}{\honorific}
+% Generic honorific command
+%    \begin{macrocode}
+\newcommand{\honorific}[2]{#1~#2}
+%    \end{macrocode}
+% \end{macro}
+%
+% Specific honorific commands
+%    \begin{macrocode}
+\newcommand{\Mr}[1]{\honorific{Mr.}{#1}}
+\newcommand{\Messrs}[1]{\honorific{Messrs.}{#1}}
+\newcommand{\Mrs}[1]{\honorific{Mrs.}{#1}}
+\newcommand{\Ms}[1]{\honorific{Ms.}{#1}}
+\newcommand{\Mmes}[1]{\honorific{Mmes.}{#1}}
+\newcommand{\Dr}[1]{\honorific{Dr.}{#1}}
+\newcommand{\Drs}[1]{\honorific{Drs.}{#1}}
+\newcommand{\Prof}[1]{\honorific{Prof.}{#1}}
+\newcommand{\Profs}[1]{\honorific{Profs.}{#1}}
+\newcommand{\Hon}[1]{\honorific{Hon.}{#1}}
+%    \end{macrocode}
+%
+%    \begin{macrocode}
+\endinput
+%</package>
+%    \end{macrocode}
+%\Finale
